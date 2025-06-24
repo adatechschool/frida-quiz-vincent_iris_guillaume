@@ -1,4 +1,3 @@
-import { createElement } from "react";
 
 const Quiz = [
     {

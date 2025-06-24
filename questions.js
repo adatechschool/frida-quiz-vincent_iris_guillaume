@@ -1,3 +1,5 @@
+import { createElement } from "react";
+
 const Quiz = [
     {
         question: "Lequel de ces oiseaux est capable de dormir en volant ?",

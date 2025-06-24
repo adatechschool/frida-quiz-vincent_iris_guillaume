@@ -99,3 +99,4 @@ question04 : " Lequel de ces oiseaux peut dormir debout... sur une seule patte ?
         ]
 
 }
+export default Quiz;

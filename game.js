@@ -22,18 +22,14 @@ afficheQuestion(index);
 
 
 function afficheReponses(numeroQuestion) {
-const reponse = Quiz[numeroQuestion].reponses
-console.log(reponse)
-}
+    let tabRep = Quiz[numeroQuestion].reponses
+    for (let item of tabRep){ 
+console.log(item.reponse);
+}}
 
 afficheReponses(index)
 
 
-
-
-// for (let x of cars) {
-//   text += x;
-// }
 
 
 

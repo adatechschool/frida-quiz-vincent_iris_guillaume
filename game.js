@@ -60,17 +60,21 @@ function boutonAction () {
         console.log(item.id);
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
-                console.log("vincent est un boss")
-            } else { 
-                item.style.background = "red"
+                console.log("vincent est un BOSSS"); 
+            } else {
+                item.style.background = 'red'
             }
-            for (let button of tabBoutons) {
+            for (let button of tabBoutons){
                 button.disabled = true;
                 if (button.id === correctAnswer) {
-                    button.style.background = "green"
+                    button.style.background = 'green'
                 }
             }
         })
     }
 }
 boutonAction();
+
+
+
+

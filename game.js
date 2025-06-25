@@ -25,6 +25,7 @@ function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
     console.log(indice); 
 }
+
 afficheQuestion(index);
 
 
@@ -36,7 +37,7 @@ function afficheReponses(numeroQuestion) {
     for (let item of tabRep){ 
         tabBoutons[indice].innerText = item.reponse;
         console.log(item.reponse);
-        if (item.isCorrect){
+        if (item.isCorrect===true){
             correctAnswer = tabBoutons[indice].id;
         }
         indice = indice + 1;
@@ -45,15 +46,6 @@ function afficheReponses(numeroQuestion) {
 
 afficheReponses(index);
 
-function boutonSuivant (){
-suivant.addEventListener("click", () => {
-    index = index + 1;
-    afficheQuestion(index);
-    afficheReponses(index);
-})
-}
-
-boutonSuivant();
 
 
 
@@ -78,5 +70,20 @@ function boutonAction (){
 boutonAction();
 
 
+
+function boutonSuivant (){
+suivant.addEventListener("click", () => {
+    index = index + 1;
+    afficheQuestion(index);
+    afficheReponses(index);
+    for (let button of tabBoutons){
+                button.disabled = false;
+        
+        }
+        
+})
+}
+
+boutonSuivant();
 
 

@@ -20,7 +20,6 @@ function afficheQuestion(indice) {
 afficheQuestion(index);
 
 
-
 function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
     for (let item of tabRep){ 

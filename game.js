@@ -20,7 +20,6 @@ function afficheQuestion(indice) {
 afficheQuestion(index);
 
 
-
 function afficheReponses(numeroQuestion) {
 
     const reponses = Quiz[numeroQuestion].reponses

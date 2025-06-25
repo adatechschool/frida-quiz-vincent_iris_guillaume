@@ -21,15 +21,33 @@ afficheQuestion(index);
 
 
 function afficheReponses(numeroQuestion) {
+    let tabRep = Quiz[numeroQuestion].reponses
+    for (let item of tabRep){ 
+console.log(item.reponse);
 
-    const reponses = Quiz[numeroQuestion].reponses
-    for (let item of reponses) {
+let boutonRep = document.createElement("button");
+boutonRep.innerText =item.reponse;
+reponse.appendChild(boutonRep);
 
-    let btn = document.getElementById("boutons")
-    let button = document.createElement("button")
-    let text = document.createTextNode(item.reponse)
-    button.appendChild(text);
-    btn.appendChild(button)
-    }
-}
+}}
+
 afficheReponses(index)
+
+
+
+
+
+
+
+
+
+
+// function afficheReponses(index) {
+
+    
+
+// console.log(Quiz[0].reponses);
+   
+    
+// }
+// afficheReponses();

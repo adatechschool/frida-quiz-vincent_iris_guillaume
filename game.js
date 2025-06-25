@@ -25,12 +25,18 @@ function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
     for (let item of tabRep){ 
 console.log(item.reponse);
-}}
+
+const contenu = document.getElementById("reponse")
+const button = document.createElement("button");
+  button.textContent = item.reponse;
+
+contenu.appendChild(button)
+}
+}
 
 afficheReponses(index)
 
-
-
+// const contenu = document.getElementById("ul")
 
 
 

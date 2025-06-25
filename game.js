@@ -25,17 +25,16 @@ function afficheReponses(numeroQuestion) {
     for (let item of tabRep){ 
 console.log(item.reponse);
 
-const contenu = document.getElementById("reponse")
-const button = document.createElement("button");
-  button.textContent = item.reponse;
+let boutonRep = document.createElement("button");
+boutonRep.innerText =item.reponse;
+reponse.appendChild(boutonRep);
 
-contenu.appendChild(button)
-}
-}
-...
+}}
+
 afficheReponses(index)
 
-// const contenu = document.getElementById("ul")
+
+
 
 
 

@@ -50,6 +50,12 @@ suivant.addEventListener("click", () => {
     index = index + 1;
     afficheQuestion(index);
     afficheReponses(index);
+    for (let button of tabBoutons) {
+        button.disabled = false
+        button.style.backgroundColor = "";
+        button.style.color = ""; 
+    }
+    
 })
 }
 
@@ -74,7 +80,3 @@ function boutonAction () {
     }
 }
 boutonAction();
-
-
-
-

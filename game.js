@@ -22,9 +22,15 @@ afficheQuestion(index);
 
 
 function afficheReponses(numeroQuestion) {
-    const reponse = Quiz[numeroQuestion].reponses
-    for (let item of reponse)
-console.log(item.reponse)
-}
 
+    const reponses = Quiz[numeroQuestion].reponses
+    for (let item of reponses) {
+
+    let btn = document.getElementById("boutons")
+    let button = document.createElement("button")
+    let text = document.createTextNode(item.reponse)
+    button.appendChild(text);
+    btn.appendChild(button)
+    }
+}
 afficheReponses(index)

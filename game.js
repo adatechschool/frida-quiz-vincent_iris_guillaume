@@ -46,10 +46,26 @@ function afficheReponses(numeroQuestion) {
 
 afficheReponses(index);
 
+<<<<<<< HEAD
+=======
+function boutonSuivant (){
+suivant.addEventListener("click", () => {
+    index = index + 1;
+    afficheQuestion(index);
+    afficheReponses(index);
+    for (let button of tabBoutons) {
+        button.disabled = false
+        button.style.backgroundColor = "";
+        button.style.color = ""; 
+    }
+    
+})
+}
 
+boutonSuivant();
+>>>>>>> 56629876ee6dc894438c8e62136f359454943fc7
 
-
-function boutonAction (){
+function boutonAction () {
     for (let item of tabBoutons) {
         console.log(item.id);
         item.addEventListener("click", () => {
@@ -67,6 +83,7 @@ function boutonAction (){
         })
     }
 }
+<<<<<<< HEAD
 boutonAction();
 
 
@@ -87,3 +104,6 @@ suivant.addEventListener("click", () => {
 boutonSuivant();
 
 
+=======
+boutonAction();
+>>>>>>> 56629876ee6dc894438c8e62136f359454943fc7

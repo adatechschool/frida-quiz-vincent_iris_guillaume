@@ -20,11 +20,15 @@ function afficheQuestion(indice) {
 afficheQuestion(index);
 
 
-
 function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
     for (let item of tabRep){ 
 console.log(item.reponse);
+
+let boutonRep = document.createElement("button");
+boutonRep.innerText =item.reponse;
+reponse.appendChild(boutonRep);
+
 }}
 
 afficheReponses(index)

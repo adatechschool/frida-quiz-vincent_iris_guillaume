@@ -10,6 +10,7 @@ let btn3 = document.getElementById("btn3");
 let btn4 = document.getElementById("btn4");
 
 let tabBoutons = [btn1, btn2, btn3, btn4];
+let correctAnswer;
 
 let index = 0;
 let score = 0;
@@ -34,9 +35,13 @@ function afficheReponses(numeroQuestion) {
     let indice = 0;
     for (let item of tabRep){ 
         tabBoutons[indice].innerText = item.reponse;
+        console.log(item.reponse);
+        if (item.isCorrect){
+            correctAnswer = tabBoutons[indice].id;
+        }
         indice = indice + 1;
-console.log(item.reponse);
-}}
+    }
+}
 
 afficheReponses(index);
 
@@ -49,4 +54,29 @@ suivant.addEventListener("click", () => {
 }
 
 boutonSuivant();
+
+
+
+function boutonAction (){
+    for (let item of tabBoutons) {
+        console.log(item.id);
+        item.addEventListener("click", () => {
+            if (correctAnswer === item.id) {
+                console.log("vincent est un BOSSS"); 
+            } else {
+                item.style.background = 'red'
+            }
+            for (let button of tabBoutons){
+                button.disabled = true;
+                if (button.id === correctAnswer) {
+                    button.style.background = 'green'
+                }
+            }
+        })
+    }
+}
+boutonAction();
+
+
+
 

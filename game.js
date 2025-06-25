@@ -32,7 +32,7 @@ const button = document.createElement("button");
 contenu.appendChild(button)
 }
 }
-
+...
 afficheReponses(index)
 
 // const contenu = document.getElementById("ul")

@@ -17,13 +17,12 @@ nouvellePage.style.display = "none";
 let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
-const scoreFinal = document.createElement("h2");
-nouvellePage.appendChild(scoreFinal);
 
 let index = 0;
 let score = 0;
 
 suivant.innerText ="suivant";
+suivant.disabled = true;
 
 
 function afficheQuestion(indice) {
@@ -55,11 +54,11 @@ function boutonSuivant (){
 suivant.addEventListener("click", () => {
     index = index + 1;
    
-    
     afficheQuestion(index);
     afficheReponses(index);
     for (let button of tabBoutons) {
         button.disabled = false
+        suivant.disabled = true;
         button.style.backgroundColor = "";
         button.style.color = ""; 
     }   
@@ -74,7 +73,6 @@ function boutonAction () {
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
                 score = score +1
-                scoreFinal.innerText = `Votre score est ${score}`;
                 console.log("Le score c'est", score)
                 console.log("vincent est un BOSSS"); 
             } else {
@@ -86,7 +84,7 @@ function boutonAction () {
                     button.style.background = 'green'
                 }
             }
-        })
+        suivant.disabled = false;})
 
     }
 }

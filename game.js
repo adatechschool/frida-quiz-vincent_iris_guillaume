@@ -66,6 +66,8 @@ function boutonAction () {
         console.log(item.id);
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
+                score = score + 1
+                console.log("c'est le score :" , score)
                 console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'
@@ -77,6 +79,7 @@ function boutonAction () {
                 }
             }
         })
+
     }
 }
 boutonAction();

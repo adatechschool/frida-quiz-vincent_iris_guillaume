@@ -17,6 +17,9 @@ nouvellePage.style.display = "none";
 let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
+const scoreFinal = document.createElement("h2");
+nouvellePage.appendChild(scoreFinal);
+
 let index = 0;
 let score = 0;
 
@@ -72,6 +75,7 @@ function boutonAction () {
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
                 score = score +1
+                scoreFinal.innerText = `Votre score est ${score}`;
                 console.log("Le score c'est", score)
                 console.log("vincent est un BOSSS"); 
             } else {
@@ -85,9 +89,7 @@ function boutonAction () {
             }
         })
 
-
     }
-    
 }
 boutonAction();
 
@@ -104,28 +106,6 @@ function dernierePage () {
 }
 dernierePage()
 
-
-
-function afficherScore(){
-    for (let btn of tabBoutons) {
-        btn.addEventListener("click", () => {
-            if (correctAnswer === btn.id) {
-                
-                console.log(`essai afficher score : ${score}`);
-                
-            }
-    
-    })
-
-    
-}const scoreFinal = document.createElement("h2");
-    scoreFinal.innerText = `Votre score est ${score}`;
-    nouvellePage.appendChild(scoreFinal);
-    console.log("votre score est", score)
-}
-afficherScore()
-
-
 function refresh () {
     rejouer.addEventListener("click", () => {
         location.reload()
@@ -134,4 +114,3 @@ function refresh () {
 console.log(location)
 
 refresh()
-

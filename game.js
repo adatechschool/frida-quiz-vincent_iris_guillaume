@@ -10,9 +10,10 @@ let btn3 = document.getElementById("btn3");
 let btn4 = document.getElementById("btn4");
 
 let hideQuizz = document.getElementById("styleQuizz");
-let rejouer = document.getElementById("nouvellePage");
+let nouvellePage = document.getElementById("nouvellePage");
+let rejouer = document.getElementById("rejouer");
 
-rejouer.style.display = "none";
+nouvellePage.style.display = "none";
 let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
@@ -92,7 +93,7 @@ function dernierePage () {
     suivant.addEventListener("click", () => {
         if (index === 4) {
             hideQuizz.style.display = "none"
-        rejouer.style.display = "block"
+        nouvellePage.style.display = "block"
          console.log("index  = ", index);
 
         }
@@ -100,3 +101,12 @@ function dernierePage () {
 
 }
 dernierePage()
+
+function refresh () {
+    rejouer.addEventListener("click", () => {
+        location.reload()
+    })
+}
+console.log(location)
+
+refresh()

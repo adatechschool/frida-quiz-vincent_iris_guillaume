@@ -4,8 +4,8 @@ const Quiz = [
         question: "Lequel de ces oiseaux est capable de dormir en volant ?",
         reponses: [
             { reponse: "Le moineau", isCorrect: false },
-            { reponse: "Le canari", isCorrect: false },
             { reponse: "Le martinet", isCorrect: true },
+            { reponse: "Le canari", isCorrect: false },
             { reponse: "Le corbeau", isCorrect: false }
         ]
     },
@@ -14,8 +14,8 @@ const Quiz = [
         reponses: [
             { reponse: "Le héron Jackson", isCorrect: false },
             { reponse: "Le colibri disco", isCorrect: false },
-            { reponse: "Le paradisier superbe", isCorrect: true },
-            { reponse: "Le flamant rose funky", isCorrect: false }
+            { reponse: "Le flamant rose funky", isCorrect: false },
+            { reponse: "Le paradisier superbe", isCorrect: true }
         ]
     },
     {
@@ -31,8 +31,8 @@ const Quiz = [
         question: "Lequel de ces oiseaux peut dormir debout... sur une seule patte ?",
         reponses: [
             { reponse: "Le canari yogi", isCorrect: false },
-            { reponse: "La Perruche équilibriste", isCorrect: false },
             { reponse: "Le flamant rose", isCorrect: true },
+            { reponse: "La Perruche équilibriste", isCorrect: false },
             { reponse: "Le pingouin ninja", isCorrect: false }
         ]
     }

@@ -25,6 +25,7 @@ function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
     console.log(indice); 
 }
+
 afficheQuestion(index);
 
 
@@ -36,7 +37,7 @@ function afficheReponses(numeroQuestion) {
     for (let item of tabRep){ 
         tabBoutons[indice].innerText = item.reponse;
         console.log(item.reponse);
-        if (item.isCorrect){
+        if (item.isCorrect===true){
             correctAnswer = tabBoutons[indice].id;
         }
         indice = indice + 1;
@@ -66,8 +67,9 @@ function boutonAction () {
         console.log(item.id);
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
-                score = score + 1;
-                console.log(`le score actuel est ${score}`);
+                score = score +1
+                console.log("Le score c'est", score)
+                console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'
             }

@@ -85,7 +85,9 @@ function boutonAction () {
             }
         })
 
+
     }
+    
 }
 boutonAction();
 
@@ -102,6 +104,28 @@ function dernierePage () {
 }
 dernierePage()
 
+
+
+function afficherScore(){
+    for (let btn of tabBoutons) {
+        btn.addEventListener("click", () => {
+            if (correctAnswer === btn.id) {
+                
+                console.log(`essai afficher score : ${score}`);
+                
+            }
+    
+    })
+
+    
+}const scoreFinal = document.createElement("h2");
+    scoreFinal.innerText = `Votre score est ${score}`;
+    nouvellePage.appendChild(scoreFinal);
+    console.log("votre score est", score)
+}
+afficherScore()
+
+
 function refresh () {
     rejouer.addEventListener("click", () => {
         location.reload()
@@ -110,3 +134,4 @@ function refresh () {
 console.log(location)
 
 refresh()
+

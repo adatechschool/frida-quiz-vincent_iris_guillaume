@@ -88,18 +88,27 @@ function boutonAction () {
 }
 boutonAction();
 
+function afficherScore(){
+    let baliseTexte = document.createElement("h2");
+    baliseTexte.innerText = `votre score est ${score}`;
+    nouvellePage.appendChild(baliseTexte);
+    console.log(score)
+}
+
 function dernierePage () {
     suivant.addEventListener("click", () => {
         if (index === 4) {
             hideQuizz.style.display = "none"
         nouvellePage.style.display = "block"
          console.log("index  = ", index);
-
+         afficherScore()
         }
     })
 
 }
 dernierePage()
+
+
 
 function refresh () {
     rejouer.addEventListener("click", () => {

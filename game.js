@@ -21,9 +21,6 @@ let score = 0;
 
 suivant.innerText ="suivant"
 
-//exemple   question.innerText = Quiz[0].question;
-//exemple   response1.innerText = Quiz[0].reponses[0].reponse;
-
 
 function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
@@ -97,7 +94,7 @@ function dernierePage () {
             hideQuizz.style.display = "none"
         rejouer.style.display = "block"
          console.log("index  = ", index);
-         
+
         }
     })
 

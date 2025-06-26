@@ -19,6 +19,7 @@ let correctAnswer;
 
 let index = 0;
 let score = 0;
+let resultatScore;
 
 suivant.innerText ="suivant"
 
@@ -63,6 +64,8 @@ suivant.addEventListener("click", () => {
     
 })
 }
+const scoreFinal = document.createElement("h2")
+nouvellePage.appendChild (scoreFinal);
 
 boutonSuivant();
 
@@ -73,6 +76,7 @@ function boutonAction () {
             if (correctAnswer === item.id) {
                 score = score +1
                 console.log("Le score c'est", score)
+                scoreFinal.innerText = `voici ton score  ${score}`;
                 console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'

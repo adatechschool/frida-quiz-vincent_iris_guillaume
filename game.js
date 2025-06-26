@@ -55,8 +55,7 @@ suivant.addEventListener("click", () => {
         button.disabled = false
         button.style.backgroundColor = "";
         button.style.color = ""; 
-    }
-    
+    }   
 })
 }
 
@@ -83,3 +82,4 @@ function boutonAction () {
     }
 }
 boutonAction();
+

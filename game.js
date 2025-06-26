@@ -46,8 +46,6 @@ function afficheReponses(numeroQuestion) {
 
 afficheReponses(index);
 
-<<<<<<< HEAD
-=======
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
     index = index + 1;
@@ -63,13 +61,14 @@ suivant.addEventListener("click", () => {
 }
 
 boutonSuivant();
->>>>>>> 56629876ee6dc894438c8e62136f359454943fc7
 
 function boutonAction () {
     for (let item of tabBoutons) {
         console.log(item.id);
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
+                score = score +1
+                console.log("Le score c'est", score)
                 console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'
@@ -83,27 +82,4 @@ function boutonAction () {
         })
     }
 }
-<<<<<<< HEAD
 boutonAction();
-
-
-
-function boutonSuivant (){
-suivant.addEventListener("click", () => {
-    index = index + 1;
-    afficheQuestion(index);
-    afficheReponses(index);
-    for (let button of tabBoutons){
-                button.disabled = false;
-        
-        }
-        
-})
-}
-
-boutonSuivant();
-
-
-=======
-boutonAction();
->>>>>>> 56629876ee6dc894438c8e62136f359454943fc7

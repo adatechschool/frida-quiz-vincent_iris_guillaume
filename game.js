@@ -4,11 +4,15 @@ import Quiz from './questions.js';
 const question = document.getElementById("questions");
 const suivant = document.getElementById("submit");
 const reponse = document.getElementById("reponse");
-let btn1 = document.getElementById("btn1"); //syntaxe a ameliorer plus tard peut etre car redondant
-let btn2 = document.getElementById("btn2"); //syntaxe a ameliorer plus tard peut etre
-let btn3 = document.getElementById("btn3"); //syntaxe a ameliorer plus tard peut etre
-let btn4 = document.getElementById("btn4"); //syntaxe a ameliorer plus tard peut etre
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
 
+let hideQuizz = document.getElementById("styleQuizz");
+let rejouer = document.getElementById("nouvellePage");
+
+rejouer.style.display = "none";
 let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
@@ -49,6 +53,8 @@ afficheReponses(index);
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
     index = index + 1;
+   
+    
     afficheQuestion(index);
     afficheReponses(index);
     for (let button of tabBoutons) {
@@ -79,7 +85,20 @@ function boutonAction () {
                 }
             }
         })
+
     }
 }
 boutonAction();
 
+function dernierePage () {
+    suivant.addEventListener("click", () => {
+        if (index === 4) {
+            hideQuizz.style.display = "none"
+        rejouer.style.display = "block"
+         console.log("index  = ", index);
+         
+        }
+    })
+
+}
+dernierePage()

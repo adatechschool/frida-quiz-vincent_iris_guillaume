@@ -21,7 +21,7 @@ let index = 0;
 let score = 0;
 let resultatScore;
 
-suivant.innerText ="suivant"
+suivant.innerText ="suivant";
 
 
 function afficheQuestion(indice) {
@@ -34,7 +34,7 @@ afficheQuestion(index);
 
 function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
-    console.log(tabBoutons);
+    console.log(`affiche le tableau de boutons: ${tabBoutons}`);
     console.log(tabRep);
     let indice = 0;
     for (let item of tabRep){ 
@@ -60,8 +60,7 @@ suivant.addEventListener("click", () => {
         button.disabled = false
         button.style.backgroundColor = "";
         button.style.color = ""; 
-    }
-    
+    }   
 })
 }
 const scoreFinal = document.createElement("h2")
@@ -93,18 +92,27 @@ function boutonAction () {
 }
 boutonAction();
 
+function afficherScore(){
+    let baliseTexte = document.createElement("h2");
+    baliseTexte.innerText = `votre score est ${score}`;
+    nouvellePage.appendChild(baliseTexte);
+    console.log(score)
+}
+
 function dernierePage () {
     suivant.addEventListener("click", () => {
         if (index === 4) {
             hideQuizz.style.display = "none"
         nouvellePage.style.display = "block"
          console.log("index  = ", index);
-
+         afficherScore()
         }
     })
 
 }
 dernierePage()
+
+
 
 function refresh () {
     rejouer.addEventListener("click", () => {

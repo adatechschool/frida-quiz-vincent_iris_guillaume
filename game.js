@@ -17,12 +17,11 @@ nouvellePage.style.display = "none";
 let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
+
 let index = 0;
 let score = 0;
 
-suivant.innerText = "suivant";
-suivant.disabled = true;
-
+suivant.innerText ="suivant";
 
 
 function afficheQuestion(indice) {
@@ -47,18 +46,19 @@ function afficheReponses(numeroQuestion) {
 }
 afficheReponses(index);
 
-function boutonSuivant() {
-    suivant.addEventListener("click", () => {
-        index = index + 1;
-        afficheQuestion(index);
-        afficheReponses(index);
-        for (let button of tabBoutons) {
-            suivant.disabled = true;
-            button.disabled = false;
-            button.style.backgroundColor = "";
-            button.style.color = "";
-        }
-    })
+function boutonSuivant (){
+suivant.addEventListener("click", () => {
+    index = index + 1;
+   
+    
+    afficheQuestion(index);
+    afficheReponses(index);
+    for (let button of tabBoutons) {
+        button.disabled = false
+        button.style.backgroundColor = "";
+        button.style.color = ""; 
+    }   
+})
 }
 boutonSuivant();
 
@@ -78,8 +78,9 @@ function boutonAction() {
                 if (button.id === correctAnswer) {
                     button.style.background = 'green'
                 }
-            } suivant.disabled = false;
+            }
         })
+
     }
 }
 boutonAction();

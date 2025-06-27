@@ -91,9 +91,22 @@ function boutonAction () {
 boutonAction();
 
 function afficherScore(){
+    let commentScore = document.createElement("h3")
     let baliseTexte = document.createElement("h2");
     baliseTexte.innerText = `votre score est ${score}`;
+    if (score === 1) {
+        commentScore.innerText = "t'es nul"
+    } else if (score === 2) {
+        commentScore.innerText = "t'es moins nul"
+    } else if (score === 3) {
+        commentScore.innerText = "t'y etais presque"
+    } else if (score === 4) {
+        commentScore.innerText = "Parfait !"
+    } else {
+        commentScore.innerText = "t'es tres nul ..."
+    }
     nouvellePage.appendChild(baliseTexte);
+    nouvellePage.appendChild(commentScore)
     console.log(score)
 }
 

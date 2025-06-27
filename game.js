@@ -4,6 +4,7 @@ import Quiz from './questions.js';
 const question = document.getElementById("questions");
 const suivant = document.getElementById("submit");
 const reponse = document.getElementById("reponse");
+
 let btn1 = document.getElementById("btn1");
 let btn2 = document.getElementById("btn2");
 let btn3 = document.getElementById("btn3");
@@ -25,9 +26,17 @@ suivant.innerText ="suivant";
 suivant.disabled = true;
 
 
+function nouvelleBalise(type, texte, id){
+        let element = document.createElement(`${type}`);
+        element.innerText = texte;
+        return id.appendChild(element);
+}
+
+
+
 function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
-    console.log(indice); 
+    console.log (`la question est a l'indice ${indice}`); 
 }
 
 afficheQuestion(index);
@@ -35,12 +44,11 @@ afficheQuestion(index);
 
 function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
-    console.log(`affiche le tableau de boutons: ${tabBoutons}`);
-    console.log(tabRep);
+    console.log(`tableau de reponses :`, tabRep);
     let indice = 0;
     for (let item of tabRep){ 
         tabBoutons[indice].innerText = item.reponse;
-        console.log(item.reponse);
+        console.log(`reponses.reponse à l'indice ${indice} =`, item.reponse);
         if (item.isCorrect===true){
             correctAnswer = tabBoutons[indice].id;
         }
@@ -52,6 +60,7 @@ afficheReponses(index);
 
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
+    boutons.removeChild(boutons.lastChild)
     index = index + 1;
    
     afficheQuestion(index);
@@ -68,15 +77,19 @@ suivant.addEventListener("click", () => {
 boutonSuivant();
 
 function boutonAction () {
+    let idx = 0;
     for (let item of tabBoutons) {
-        console.log(item.id);
+        console.log(`tabBoutons a l'indice ${idx} = ` ,item.id);
+        idx++
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
-                score = score +1
-                console.log("Le score c'est", score)
+                score = score +1;
+                nouvelleBalise("h1", "Bravo ! 👍", boutons);
+                console.log("Le score est =", score);
                 console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'
+                nouvelleBalise("h1", "Dommage 👎", boutons);
             }
             for (let button of tabBoutons){
                 button.disabled = true;
@@ -84,8 +97,9 @@ function boutonAction () {
                     button.style.background = 'green'
                 }
             }
-        suivant.disabled = false;})
-
+            suivant.disabled = false;
+            
+            })
     }
 }
 boutonAction();
@@ -106,7 +120,8 @@ function afficherScore(){
         commentScore.innerText = "t'es tres nul ..."
     }
     nouvellePage.appendChild(baliseTexte);
-    nouvellePage.appendChild(commentScore)
+    nouvellePage.appendChild(commentScore);
+    nouvellePage.appendChild(rejouer)
     console.log(score)
 }
 
@@ -133,3 +148,5 @@ function refresh () {
 console.log(location)
 
 refresh()
+
+

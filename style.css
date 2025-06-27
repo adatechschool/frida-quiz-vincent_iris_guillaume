@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to top, #a9d6e5, #f2e8cf);
+  background: url("images/imageFond.jpg");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -12,6 +13,16 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
+#bird {
+  position: relative;
+  cursor: pointer;
+  width: 177px;
+  height: 160px;
+  left: 0px;
+  transition: left 5s cubic-bezier(0.0, 0.5, 0.5, 1.0);
+}
+
 #styleQuizz {
   background-color: #fffdf5;
   border: 3px solid #6b4226;

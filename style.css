@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to top, #a9d6e5, #f2e8cf);
+  font-family: 'Helvetica rounded';
+  background: url("images/imageFond.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -12,6 +12,30 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
+
+#bird {
+  position: absolute;
+  left: -200px;
+  top: 100px;
+  width: 177px;
+  height: 160px;
+  transform: scaleX(-1);
+  animation: none;
+  transition: none;
+  z-index: 10;
+}
+
+@keyframes flyWave {
+  0%   { left: -200px; top: 100px; }
+  25%  { top: 60px; }
+  50%  { top: 100px; }
+  75%  { top: 140px; }
+  100% { left: 100vw; top: 100px; }
+}
+
+
+
 #styleQuizz {
   background-color: #fffdf5;
   border: 3px solid #6b4226;
@@ -54,6 +78,7 @@ body {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   width: 100%;
+  font-family: 'Helvetica rounded';
 }
 
 .bouton:hover {
@@ -62,6 +87,8 @@ body {
 }
 
 #submit {
+  display: block;
+  margin: 1rem auto; /* Centrage horizontal */
   margin-top: 1rem;
   padding: 0.8rem 1.5rem;
   background-color: #6a994e;
@@ -71,6 +98,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Helvetica rounded';
 }
 
 #submit:hover {
@@ -99,6 +127,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Helvetica rounded';
 }
 
 #rejouer:hover {
@@ -130,3 +159,4 @@ body {
   background-color: #E76F51 !important;
   color: white;
 }
+

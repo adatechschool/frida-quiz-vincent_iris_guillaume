@@ -62,6 +62,19 @@ function boutonSuivant (){
 suivant.addEventListener("click", () => {
     boutons.removeChild(boutons.lastChild)
     index = index + 1;
+
+    // 🐦 Relancer l'animation de l'oiseau à chaque clic sur "suivant"
+const bird = document.getElementById("bird");
+bird.style.animation = "none";       // Supprime l'animation
+void bird.offsetWidth;               // Force reflow
+bird.style.animation = "flyWave 5s linear"; // Relance l’animation
+
+// 🔁 Revenir à la position de départ après le vol
+setTimeout(() => {
+    bird.style.animation = "none";
+    bird.style.left = "-200px";
+    bird.style.top = "100px";
+}, 5000); // doit correspondre à la durée de l'animation
    
     afficheQuestion(index);
     afficheReponses(index);
@@ -129,9 +142,11 @@ function dernierePage () {
     suivant.addEventListener("click", () => {
         if (index === 4) {
             hideQuizz.style.display = "none"
+        document.getElementById("bird").style.display = "none";
         nouvellePage.style.display = "block"
          console.log("index  = ", index);
          afficherScore()
+
         }
     })
 
@@ -148,5 +163,4 @@ function refresh () {
 console.log(location)
 
 refresh()
-
 

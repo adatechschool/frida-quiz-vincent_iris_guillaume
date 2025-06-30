@@ -106,7 +106,8 @@ function afficherScore(){
         commentScore.innerText = "t'es tres nul ..."
     }
     nouvellePage.appendChild(baliseTexte);
-    nouvellePage.appendChild(commentScore)
+    nouvellePage.appendChild(commentScore);
+    nouvellePage.appendChild(rejouer)
     console.log(score)
 }
 
@@ -133,3 +134,32 @@ function refresh () {
 console.log(location)
 
 refresh()
+
+let timerInverval;
+let timeLeft = 30;
+let timerDisplay = document.getElementById("timer")
+
+function startTimer() {
+    clearInterval(timerInverval)
+        timeLeft = 30
+        timerDisplay.innerText = `temps : ${timeLeft}`
+        timerInverval = setInterval(() => {
+            timeLeft--;
+            timerDisplay.innerText = `temps : ${timeLeft}`
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInverval)
+                lockAnswers()
+            }
+        }, 1000);
+}
+
+function lockAnswers() {
+    for (let button of tabBoutons)
+        button.disabled = true;
+        if (button.id === correctAnswer) {
+            button.style.background = "green"
+        } else {
+            suivant.disabled = false
+        }
+}

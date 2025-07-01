@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'mySecondFont';
-  src: url('./Font/HelveticaRoundedLT-Bold.otf');
+  src: url('./font/HelveticaRoundedLT-Bold.otf');
 }
 
 
@@ -178,4 +178,12 @@ h4 {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-
+#rectangle{
+  display: inline-block;
+  min-width: 50px;
+  height : 5%;
+  color: #6a994e;
+  background-color: #6a994e;
+  border-radius: 20px;
+  margin-top: 1.5rem; 
+}

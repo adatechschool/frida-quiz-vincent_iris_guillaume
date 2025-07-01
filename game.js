@@ -1,5 +1,5 @@
 import Quiz from './questions.js';
-
+import {playVrai, playFaux} from './sons.js';
 
 const question = document.getElementById("questions");
 const suivant = document.getElementById("submit");
@@ -114,10 +114,12 @@ function boutonAction () {
                 score = score +1;
                 nouvelleBalise("h4", "Bravo ! 👍", boutons);
                 console.log("Le score est =", score);
-                console.log("vincent est un BOSSS"); 
+                console.log("vincent est un BOSSS");
+                playVrai()
             } else {
                 item.style.background = 'red'
                 nouvelleBalise("h4", "Dommage 👎", boutons);
+                playFaux()
             }
             for (let button of tabBoutons){
                 button.disabled = true;
@@ -200,4 +202,3 @@ function updateTimer() {
     clearInterval(timerId); // Stoppe le timer une fois terminé
 }
 }
-

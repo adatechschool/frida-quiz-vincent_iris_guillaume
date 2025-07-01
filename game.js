@@ -1,5 +1,6 @@
 import Quiz from './questions.js';
 import {playVrai, playFaux} from './sons.js';
+import { progressionBarre, entierPourcent, nouvelleBalise } from './progression.js';
 
 const question = document.getElementById("questions");
 const suivant = document.getElementById("submit");
@@ -19,20 +20,14 @@ let tabBoutons = [btn1, btn2, btn3, btn4];
 let correctAnswer;
 
 
+
 let index = 0;
 let score = 0;
 
+progressionBarre(100);
+
 suivant.innerText ="suivant";
 suivant.disabled = true;
-
-
-function nouvelleBalise(type, texte, id){
-        let element = document.createElement(`${type}`);
-        element.innerText = texte;
-        return id.appendChild(element);
-}
-
-
 
 function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
@@ -102,8 +97,6 @@ function relancerAnimationOiseau() {
 }
 
 
-
-
 function boutonAction () {
     let idx = 0;
     for (let item of tabBoutons) {
@@ -127,29 +120,27 @@ function boutonAction () {
                     button.style.background = 'green'
                 }
             }
-            suivant.disabled = false;
-            
+            suivant.disabled = false; 
             })
     }
 }
 boutonAction();
 
-
-
 function afficherScore(){
     let commentScore = document.createElement("h3")
     let baliseTexte = document.createElement("h2");
-    baliseTexte.innerText = `votre score est ${score}`;
-    if (score === 1) {
-        commentScore.innerText = "t'es nul"
-    } else if (score === 2) {
-        commentScore.innerText = "t'es moins nul"
-    } else if (score === 3) {
-        commentScore.innerText = "t'y etais presque"
-    } else if (score === 4) {
+    score = entierPourcent(score);
+    baliseTexte.innerText = `${score}% de reussite`;
+    if (score <= 25) {
+        commentScore.innerText = "T'es nul.le"
+    } else if (score <= 50) {
+        commentScore.innerText = "T'es pas si nul.le"
+    } else if (score <= 75) {
+        commentScore.innerText = "T'y etais presque"
+    } else if (score <= 100) {
         commentScore.innerText = "Parfait !"
     } else {
-        commentScore.innerText = "t'es tres nul ..."
+        commentScore.innerText = "T'es tres nul ..."
     }
     nouvellePage.appendChild(baliseTexte);
     nouvellePage.appendChild(commentScore);
@@ -160,8 +151,8 @@ function afficherScore(){
 
 function dernierePage () {
     suivant.addEventListener("click", () => {
-        if (index === 4) {
-            hideQuizz.style.display = "none"
+        if (index === Quiz.length) {
+        hideQuizz.style.display = "none";
         document.getElementById("bird").style.display = "none";
         nouvellePage.style.display = "block"
          console.log("index  = ", index);
@@ -186,7 +177,6 @@ refresh()
 
 
 
-
 let timerId = setInterval(updateTimer, 1000); //param  : fnct, param 2 repete la fnct tout les 1000milisec
 let timerDisplay = document.getElementById("timer")
 let timer = 30;
@@ -202,3 +192,4 @@ function updateTimer() {
     clearInterval(timerId); // Stoppe le timer une fois terminé
 }
 }
+

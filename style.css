@@ -1,7 +1,18 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url('./font/Palm\ Leaf\ Demo.ttf');
+}
+
+@font-face {
+  font-family: 'mySecondFont';
+  src: url('./Font/HelveticaRoundedLT-Bold.otf');
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica rounded';
+  font-family: 'mySecondFont';
   background: url("images/imageFond.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,6 +37,8 @@ body {
   z-index: 10;
 }
 
+
+
 @keyframes flyWave {
   0%   { left: -200px; top: 100px; }
   25%  { top: 60px; }
@@ -44,10 +57,20 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   max-width: 600px;
   width: 90%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 #styleQuizz h1,
 #nouvellePage h1 {
+  font-family: myFirstFont;
+  font-size: 3.5rem;
+  font-weight: lighter;
+  color: #6a994e;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+h4 {
   font-size: 2rem;
   color: #6a994e;
   text-align: center;
@@ -78,7 +101,13 @@ body {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   width: 100%;
-  font-family: 'Helvetica rounded';
+  font-family: 'mySecondFont';
+}
+
+#timer {
+  font-size: 1.3rem;
+  color: #ffffff;
+  text-align: center;
 }
 
 .bouton:hover {
@@ -98,7 +127,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: 'Helvetica rounded';
+  font-family: 'mySecondFont';
 }
 
 #submit:hover {
@@ -127,7 +156,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: 'Helvetica rounded';
+  font-family: 'mySecondFont';
 }
 
 #rejouer:hover {
@@ -149,14 +178,4 @@ body {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* --- Réponse correcte / incorrecte --- */
-.correct {
-  background-color: #9AEBA3 !important;
-  color: white;
-}
-
-.incorrect {
-  background-color: #E76F51 !important;
-  color: white;
-}
 

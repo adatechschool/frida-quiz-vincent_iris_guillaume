@@ -58,26 +58,23 @@ function afficheReponses(numeroQuestion) {
 
 afficheReponses(index);
 
+
+
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
     boutons.removeChild(boutons.lastChild)
     index = index + 1;
-
-    // 🐦 Relancer l'animation de l'oiseau à chaque clic sur "suivant"
-const bird = document.getElementById("bird");
-bird.style.animation = "none";       // Supprime l'animation
-void bird.offsetWidth;               // Force reflow
-bird.style.animation = "flyWave 5s linear"; // Relance l’animation
-
-// 🔁 Revenir à la position de départ après le vol
-setTimeout(() => {
-    bird.style.animation = "none";
-    bird.style.left = "-200px";
-    bird.style.top = "100px";
-}, 5000); // doit correspondre à la durée de l'animation
-   
     afficheQuestion(index);
     afficheReponses(index);
+
+        relancerAnimationOiseau();
+
+            //relance un nouveau timer à chaque fois qu’on clique sur "Suivant"
+            clearInterval(timerId);
+            timer = 30;
+            timerDisplay.innerText = `il ne reste plus que ${timer}`;
+            timerId = setInterval(updateTimer, 1000);                         
+
     for (let button of tabBoutons) {
         button.disabled = false
         suivant.disabled = true;
@@ -89,6 +86,24 @@ setTimeout(() => {
 
 boutonSuivant();
 
+
+
+function relancerAnimationOiseau() {
+  const bird = document.getElementById("bird");
+  bird.style.animation = "none";
+  bird.offsetHeight; //
+  bird.style.animation = "flyWave 5s linear";
+
+  setTimeout(() => {
+    bird.style.animation = "none";
+    bird.style.left = "-200px";
+    bird.style.top = "100px";
+  }, 5000);
+}
+
+
+
+
 function boutonAction () {
     let idx = 0;
     for (let item of tabBoutons) {
@@ -97,12 +112,12 @@ function boutonAction () {
         item.addEventListener("click", () => {
             if (correctAnswer === item.id) {
                 score = score +1;
-                nouvelleBalise("h1", "Bravo ! 👍", boutons);
+                nouvelleBalise("h4", "Bravo ! 👍", boutons);
                 console.log("Le score est =", score);
                 console.log("vincent est un BOSSS"); 
             } else {
                 item.style.background = 'red'
-                nouvelleBalise("h1", "Dommage 👎", boutons);
+                nouvelleBalise("h4", "Dommage 👎", boutons);
             }
             for (let button of tabBoutons){
                 button.disabled = true;
@@ -116,6 +131,8 @@ function boutonAction () {
     }
 }
 boutonAction();
+
+
 
 function afficherScore(){
     let commentScore = document.createElement("h3")
@@ -137,6 +154,7 @@ function afficherScore(){
     nouvellePage.appendChild(rejouer)
     console.log(score)
 }
+
 
 function dernierePage () {
     suivant.addEventListener("click", () => {
@@ -164,31 +182,22 @@ console.log(location)
 
 refresh()
 
-let timerInverval;
-let timeLeft = 30;
+
+
+
+let timerId = setInterval(updateTimer, 1000); //param  : fnct, param 2 repete la fnct tout les 1000milisec
 let timerDisplay = document.getElementById("timer")
+let timer = 30;
 
-function startTimer() {
-    clearInterval(timerInverval)
-        timeLeft = 30
-        timerDisplay.innerText = `temps : ${timeLeft}`
-        timerInverval = setInterval(() => {
-            timeLeft--;
-            timerDisplay.innerText = `temps : ${timeLeft}`
-
-            if (timeLeft <= 0) {
-                clearInterval(timerInverval)
-                lockAnswers()
-            }
-        }, 1000);
+function updateTimer() {
+    timer--;
+    timerDisplay.innerText = `il ne reste plus que ${timer} secondes`
+    if (timer <= 0) {
+    for (let btn of tabBoutons) {
+    btn.disabled = true;
+    }
+    suivant.disabled = false; // Permet de passer à la question suivante
+    clearInterval(timerId); // Stoppe le timer une fois terminé
+}
 }
 
-function lockAnswers() {
-    for (let button of tabBoutons)
-        button.disabled = true;
-        if (button.id === correctAnswer) {
-            button.style.background = "green"
-        } else {
-            suivant.disabled = false
-        }
-}

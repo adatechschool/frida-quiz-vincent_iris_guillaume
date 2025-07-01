@@ -24,7 +24,7 @@ let correctAnswer;
 let index = 0;
 let score = 0;
 
-progressionBarre(100);
+progressionBarre();
 
 suivant.innerText ="suivant";
 suivant.disabled = true;
@@ -57,8 +57,10 @@ afficheReponses(index);
 
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
+    styleQuizz.removeChild(styleQuizz.lastChild)
     boutons.removeChild(boutons.lastChild)
     index = index + 1;
+    progressionBarre(entierPourcent(index));
     afficheQuestion(index);
     afficheReponses(index);
 
@@ -152,6 +154,7 @@ function afficherScore(){
 function dernierePage () {
     suivant.addEventListener("click", () => {
         if (index === Quiz.length) {
+          //  hideQuizz.style animation css fadeout
         hideQuizz.style.display = "none";
         document.getElementById("bird").style.display = "none";
         nouvellePage.style.display = "block"

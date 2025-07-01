@@ -24,7 +24,7 @@ let correctAnswer;
 let index = 0;
 let score = 0;
 
-progressionBarre();
+progressionBarre(entierPourcent(1));
 
 suivant.innerText ="suivant";
 suivant.disabled = true;
@@ -60,7 +60,7 @@ suivant.addEventListener("click", () => {
     styleQuizz.removeChild(styleQuizz.lastChild)
     boutons.removeChild(boutons.lastChild)
     index = index + 1;
-    progressionBarre(entierPourcent(index));
+    progressionBarre(entierPourcent(index+1));
     afficheQuestion(index);
     afficheReponses(index);
 
@@ -119,9 +119,10 @@ function boutonAction () {
             for (let button of tabBoutons){
                 button.disabled = true;
                 if (button.id === correctAnswer) {
-                    button.style.background = 'green'
+                    button.style.backgroundColor = 'green'
                 }
             }
+        
             suivant.disabled = false; 
             })
     }
@@ -151,10 +152,11 @@ function afficherScore(){
 }
 
 
+
 function dernierePage () {
+    
     suivant.addEventListener("click", () => {
         if (index === Quiz.length) {
-          //  hideQuizz.style animation css fadeout
         hideQuizz.style.display = "none";
         document.getElementById("bird").style.display = "none";
         nouvellePage.style.display = "block"

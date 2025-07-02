@@ -14,7 +14,9 @@ import Quiz from './questions.js';
 
 function progressionBarre(number) {
     let balise = nouvelleBalise("div", "0", styleQuizz);
+    console.log(balise)
     balise.id = "rectangle";
+     console.log(balise)
     rectangle.style.width = `${number}%`;
     return balise
     };

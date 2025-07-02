@@ -4,7 +4,6 @@ import { progressionBarre, entierPourcent, nouvelleBalise } from './progression.
 
 const question = document.getElementById("questions");
 const suivant = document.getElementById("submit");
-const reponse = document.getElementById("reponse");
 
 let btn1 = document.getElementById("btn1");
 let btn2 = document.getElementById("btn2");
@@ -31,7 +30,7 @@ suivant.disabled = true;
 
 function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
-    console.log (`la question est a l'indice ${indice}`); 
+    // console.log (`la question est a l'indice ${indice}`); 
 }
 
 afficheQuestion(index);
@@ -39,15 +38,15 @@ afficheQuestion(index);
 
 function afficheReponses(numeroQuestion) {
     let tabRep = Quiz[numeroQuestion].reponses
-    console.log(`tableau de reponses :`, tabRep);
+    // console.log(`tableau de reponses :`, tabRep);
     let indice = 0;
     for (let item of tabRep){ 
         tabBoutons[indice].innerText = item.reponse;
-        console.log(`reponses.reponse à l'indice ${indice} =`, item.reponse);
+        // console.log(`reponses.reponse à l'indice ${indice} =`, item.reponse);
         if (item.isCorrect===true){
             correctAnswer = tabBoutons[indice].id;
         }
-        indice = indice + 1;
+        indice++ ;
     }
 }
 
@@ -57,8 +56,8 @@ afficheReponses(index);
 
 function boutonSuivant (){
 suivant.addEventListener("click", () => {
-    styleQuizz.removeChild(styleQuizz.lastChild)
-    boutons.removeChild(boutons.lastChild)
+    styleQuizz.removeChild(styleQuizz.lastChild) //retire bravo ou dommage
+    boutons.removeChild(boutons.lastChild)// retire le rectangle de progression precedent
     index = index + 1;
     progressionBarre(entierPourcent(index+1));
     afficheQuestion(index);
@@ -82,8 +81,6 @@ suivant.addEventListener("click", () => {
 }
 
 boutonSuivant();
-
-
 
 function relancerAnimationOiseau() {
   const bird = document.getElementById("bird");
@@ -134,7 +131,11 @@ function afficherScore(){
     let baliseTexte = document.createElement("h2");
     score = entierPourcent(score);
     baliseTexte.innerText = `${score}% de reussite`;
-    if (score <= 25) {
+    
+    if (score === 0) {
+        commentScore.innerText = "T'es tres nul ..."
+    }
+    else if (score <= 25) {
         commentScore.innerText = "T'es nul.le"
     } else if (score <= 50) {
         commentScore.innerText = "T'es pas si nul.le"
@@ -142,9 +143,7 @@ function afficherScore(){
         commentScore.innerText = "T'y etais presque"
     } else if (score <= 100) {
         commentScore.innerText = "Parfait !"
-    } else {
-        commentScore.innerText = "T'es tres nul ..."
-    }
+    } 
     nouvellePage.appendChild(baliseTexte);
     nouvellePage.appendChild(commentScore);
     nouvellePage.appendChild(rejouer)
@@ -190,6 +189,7 @@ function updateTimer() {
     timer--;
     timerDisplay.innerText = `il ne reste plus que ${timer} secondes`
     if (timer <= 0) {
+        timerDisplay.innerText = `Trop tard`
     for (let btn of tabBoutons) {
     btn.disabled = true;
     }
@@ -197,4 +197,3 @@ function updateTimer() {
     clearInterval(timerId); // Stoppe le timer une fois terminé
 }
 }
-

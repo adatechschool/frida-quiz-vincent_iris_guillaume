@@ -28,6 +28,8 @@ progressionBarre(entierPourcent(1));
 
 suivant.innerText ="suivant";
 suivant.disabled = true;
+suivant.style.background = 'grey'
+
 
 function afficheQuestion(indice) {
     question.innerText = Quiz[indice].question;
@@ -75,6 +77,7 @@ suivant.addEventListener("click", () => {
     for (let button of tabBoutons) {
         button.disabled = false
         suivant.disabled = true;
+        suivant.style.background = 'grey'
         button.style.backgroundColor = "";
         button.style.color = ""; 
     }   
@@ -123,7 +126,8 @@ function boutonAction () {
                 }
             }
         
-            suivant.disabled = false; 
+            suivant.disabled = false;
+            suivant.style.background = 'green'
             })
     }
 }
@@ -189,12 +193,14 @@ let timer = 30;
 function updateTimer() {
     timer--;
     timerDisplay.innerText = `il ne reste plus que ${timer} secondes`
+     
     if (timer <= 0) {
     for (let btn of tabBoutons) {
     btn.disabled = true;
     }
     suivant.disabled = false; // Permet de passer à la question suivante
     clearInterval(timerId); // Stoppe le timer une fois terminé
+    suivant.style.background = 'green'
 }
 }
 

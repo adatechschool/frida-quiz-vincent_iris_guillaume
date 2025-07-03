@@ -32,10 +32,37 @@ const Quiz = [
         reponses: [
             { reponse: "Le canari yogi", isCorrect: false },
             { reponse: "Le flamant rose", isCorrect: true },
-            { reponse: "La Perruche équilibriste", isCorrect: false },
+            { reponse: "La perruche équilibriste", isCorrect: false },
             { reponse: "Le pingouin ninja", isCorrect: false }
         ]
-    }
+    },
+    {
+        question: "Quel oiseau est le seul capable de voler à reculons ?",
+        reponses: [
+            { reponse: "Le colibri", isCorrect: true },
+            { reponse: "L'aigle rétro", isCorrect: false },
+            { reponse: "La mouette créneau", isCorrect: false },
+            { reponse: "Le pélican inverse", isCorrect: false }
+        ]
+    },
+    {
+        question: "Quel oiseau peut faire des roulades en vol, juste pour le fun ?",
+        reponses: [
+            { reponse: "Le pigeon voltigeur", isCorrect: true },
+            { reponse: "Le martinet cascadeur", isCorrect: false },
+            { reponse: "Le guêpier looping", isCorrect: false },
+            { reponse: "Le choucas joueur", isCorrect: false }
+        ]
+    },
+    {
+        question: "Quel oiseau chante des chansons composées de centaines de notes… sans jamais répéter le même morceau ?",
+        reponses: [
+            { reponse: "Le loriot freestyle", isCorrect: false },
+            { reponse: "Le rossignol", isCorrect: true },
+            { reponse: "Le coucou DJ", isCorrect: false },
+            { reponse: "Le merle Mozart", isCorrect: false }
+        ]
+    },
 ];
 
 

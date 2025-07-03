@@ -173,7 +173,7 @@ h4 {
   width: 90%;
   margin-top: 2rem;
   text-align: center;
-  animation: affichScores 2s cubic-bezier(0.11, 0, 0.5, 0) 0s 1 normal forwards;
+  animation: affichScores 1s cubic-bezier(0.11, 0, 0.5, 0) 0s 1 normal forwards;
 }
 
 @keyframes affichScores {
@@ -193,7 +193,7 @@ h2{
   border-radius: 25px;
   padding: 0.8rem 1rem;
   font-size: 1.3rem;
-  width: 90%;
+  width: 94%;
 
 }
 

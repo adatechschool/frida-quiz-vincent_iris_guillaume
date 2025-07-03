@@ -8,12 +8,12 @@ import Quiz from './questions.js';
 
     function entierPourcent(indiceQuestion) {
         let indicePourcent = indiceQuestion*100/Quiz.length;
-        return indicePourcent;
+        return Math.round(indicePourcent);
     }
 
 
 function progressionBarre(number) {
-    let balise = nouvelleBalise("div", "0", styleQuizz);
+    let balise = nouvelleBalise("div", " ", styleQuizz);
     console.log(balise)
     balise.id = "rectangle";
      console.log(balise)

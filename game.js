@@ -69,7 +69,7 @@ suivant.addEventListener("click", () => {
 
             //relance un nouveau timer à chaque fois qu’on clique sur "Suivant"
             clearInterval(timerId);
-            timer = 30;
+            timer = 20;
             timerDisplay.innerText = `il ne reste plus que ${timer}`;
             timerId = setInterval(updateTimer, 1000);                         
 
@@ -88,7 +88,7 @@ boutonSuivant();
 function relancerAnimationOiseau() {
   const bird = document.getElementById("bird");
   bird.style.animation = "none";
-  bird.offsetHeight; //
+//   bird.offsetHeight; //
   bird.style.animation = "flyWave 5s linear";
 
   setTimeout(() => {
@@ -187,7 +187,7 @@ refresh()
 
 let timerId = setInterval(updateTimer, 1000); //param  : fnct, param 2 repete la fnct tout les 1000milisec
 let timerDisplay = document.getElementById("timer")
-let timer = 30;
+let timer = 20;
 
 function updateTimer() {
     timer--;

@@ -13,7 +13,7 @@ import Quiz from './questions.js';
 
 
 function progressionBarre(number) {
-    let balise = nouvelleBalise("div", " ", styleQuizz);
+    let balise = nouvelleBalise("div", ".", styleQuizz);
     console.log(balise)
     balise.id = "rectangle";
      console.log(balise)
